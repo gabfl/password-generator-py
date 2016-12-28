@@ -2,7 +2,7 @@
 
 # Author: Gabriel Bordeaux (gabfl)
 # Github: https://github.com/gabfl/password-generator-py
-# Version: 1.0
+# Version: 1.0.1
 # Compatible with python 2 & 3
 
 from random import random, randint, choice
@@ -21,7 +21,8 @@ class PasswordGenerator:
         self.setIntPosition();
 
     def getCurrentDir(self):
-        return os.path.dirname(__file__) + '/';
+        """returns the script directory name to locate the correct dictionary path"""
+        return os.path.dirname(os.path.abspath(__file__)) + '/';
 
     def loadDictionary(self):
         """load dictionary into a list."""
