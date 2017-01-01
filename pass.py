@@ -3,20 +3,21 @@
 # Author: Gabriel Bordeaux (gabfl)
 # Github: https://github.com/gabfl/password-generator-py
 # Version: 1.0.1
-# Compatible with python 2 & 3
+# Compatible with python 2.7 & 3
 
-from random import random, randint, choice
+from random import randint, choice
 import os
 
 class PasswordGenerator:
-    dictionary = ();
-    intPosition = None;
-    numberOfElements = 4; # 4 = 3 words + 1 integer
-    maxInt = 1000; # Maximum value for the integer
-    separators = ('-', '_', ':', ';', '.', '=', '+', '%', '*'); # List of available separators
-    maxWordLength = 8; # Maximum characters per word
 
     def __init__(self):
+        # Set default vars
+        self.numberOfElements = 4; # 4 = 3 words + 1 integer
+        self.maxInt = 1000; # Maximum value for the integer
+        self.separators = ('-', '_', ':', ';', '.', '=', '+', '%', '*'); # List of available separators
+        self.maxWordLength = 8; # Maximum characters per word
+
+        # Call initial methods
         self.loadDictionary();
         self.setIntPosition();
 
