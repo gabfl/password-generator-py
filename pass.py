@@ -73,5 +73,6 @@ class PasswordGenerator:
         return self.generate();
 
 # Generate a password
-pw = PasswordGenerator();
-print (pw());
+if __name__ == "__main__":
+    pw = PasswordGenerator();
+    print (pw());
