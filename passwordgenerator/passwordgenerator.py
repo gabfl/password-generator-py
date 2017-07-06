@@ -78,4 +78,4 @@ def main():
 
 # Generate a password
 if __name__ == "__main__":
-    maint()
+    main()
