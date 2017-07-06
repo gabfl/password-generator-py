@@ -33,20 +33,18 @@ Optimise=472+Deterred%Apricots
 Blotched%Dugout_995;Alkyl
 ```
 
-## Installation & usage
+## Usage
 
 ```
-$> pip3 install passwordgenerator
-
-$> passwordgenerator
+gab$ ./pass.py 
 844=Chinless=Jewelry+Consumer
 ```
 
-## Use within another Python script
+## Easy access with your `.profile`
+
+To access the program easily, just add the following alias to your `~/.profile`:
 
 ```
-from passwordgenerator import passwordgenerator
-
-p = passwordgenerator.PasswordGenerator()
-print(p())
+# Generate a password
+alias pass="~/PATH/TO/pass.py"
 ```
