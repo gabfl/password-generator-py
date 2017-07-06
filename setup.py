@@ -3,7 +3,7 @@ from setuptools import setup
 setup (
     name = 'passwordgenerator',
     version = '1.0.2',
-    description = 'Python password manager',
+    description = 'Passwords easy for humans, hard for computers',
     author = 'Gabriel Bordeaux',
     author_email = 'pypi@gab.lc',
     url = 'https://github.com/gabfl/password-generator-py/',
