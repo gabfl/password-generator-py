@@ -2,9 +2,6 @@
 __pycache__/
 *.py[cod]
 .Python
-passwordgenerator.egg-info/
-dist/
-build/
 
 # Mac
 .DS_Store
