@@ -6,8 +6,7 @@ setup (
     description = 'Python password manager',
     author = 'Gabriel Bordeaux',
     author_email = 'pypi@gab.lc',
-    url = 'https://github.com/gabfl/vault',
-    download_url = 'https://github.com/gabfl/vault/archive/1.3.tar.gz',
+    url = 'https://github.com/gabfl/password-generator-py/',
     license = 'MIT',
     packages = ['passwordgenerator'],
     package_data={
