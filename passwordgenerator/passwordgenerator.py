@@ -72,7 +72,10 @@ class PasswordGenerator:
     def __call__(self):
         return self.generate();
 
+def main():
+    pw = PasswordGenerator()
+    print (pw())
+
 # Generate a password
 if __name__ == "__main__":
-    pw = PasswordGenerator();
-    print (pw());
+    maint()
