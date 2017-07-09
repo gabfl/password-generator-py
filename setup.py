@@ -15,7 +15,6 @@ setup (
     author_email = 'pypi@gab.lc',
     url = 'https://github.com/gabfl/password-generator-py/',
     license = 'MIT',
-    #packages = find_packages('src'),
     packages = ['passwordgenerator', 'passwordgenerator.data'],
     package_dir = { 'passwordgenerator': 'src' },
     install_requires = ['argparse'], # external dependencies
