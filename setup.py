@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 try:
     import pypandoc
@@ -8,20 +8,20 @@ except(IOError, ImportError):
 
 setup (
     name = 'passwordgenerator',
-    version = '1.0.2b',
+    version = '1.0.3',
     description = 'Passwords easy for humans, hard for computers',
     long_description = long_description,
     author = 'Gabriel Bordeaux',
     author_email = 'pypi@gab.lc',
     url = 'https://github.com/gabfl/password-generator-py/',
     license = 'MIT',
-    packages = ['passwordgenerator'],
-    package_data={
-        'passwordgenerator': ['data/*.csv'],
-    },
+    #packages = find_packages('src'),
+    packages = ['passwordgenerator', 'passwordgenerator.data'],
+    package_dir = { 'passwordgenerator': 'src' },
+    install_requires = ['argparse'], # external dependencies
     entry_points = {
         'console_scripts': [
-            'passwordgenerator = passwordgenerator.passwordgenerator:main',
+            'passwordgenerator = passwordgenerator.pwgenerator:main',
         ],
     },
 )
