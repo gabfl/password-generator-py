@@ -5,6 +5,6 @@
     python3 main.py
 """
 
-from src.passwordgenerator import *
+import src.pwgenerator
 
-main()
+src.pwgenerator.main()
