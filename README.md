@@ -35,7 +35,7 @@ Blotched%Dugout_995;Alkyl
 
 ## Installation & usage
 
-```
+```bash
 $> pip3 install passwordgenerator
 
 $> passwordgenerator
@@ -44,9 +44,30 @@ $> passwordgenerator
 
 ## Use within another Python script
 
-```
-from passwordgenerator import passwordgenerator
+```python
+>>> from passwordgenerator import pwgenerator
 
-p = passwordgenerator.PasswordGenerator()
-print(p())
+>>> pwgenerator.generate()
+'676=Layers*Bugbear_Escapes'
+```
+
+## Advanced options
+
+```
+passwordgenerator [-h] [-n MIN_WORD_LENGTH] [-x MAX_WORD_LENGTH]
+                  [-i MAX_INT_VALUE] [-e NUMBER_OF_ELEMENTS] [-s]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n MIN_WORD_LENGTH, --min_word_length MIN_WORD_LENGTH
+                        Minimum length for each word
+  -x MAX_WORD_LENGTH, --max_word_length MAX_WORD_LENGTH
+                        Maximum length for each word
+  -i MAX_INT_VALUE, --max_int_value MAX_INT_VALUE
+                        Maximum value for the integer
+  -e NUMBER_OF_ELEMENTS, --number_of_elements NUMBER_OF_ELEMENTS
+                        Number of elements in the password (ie. 4 = 3 words +
+                        1 integer)
+  -s, --no_special_characters
+                        Do not use special characters
 ```
