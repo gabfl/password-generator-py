@@ -8,7 +8,7 @@ except(IOError, ImportError):
 
 setup(
     name='passwordgenerator',
-    version='1.1',
+    version='1.1.1',
     description='Passwords easy for humans, hard for computers',
     long_description=long_description,
     author='Gabriel Bordeaux',
@@ -23,4 +23,16 @@ setup(
             'passwordgenerator = passwordgenerator.pwgenerator:main',
         ],
     },
+    classifiers=[  # see https://pypi.python.org/pypi?%3Aaction=list_classifiers
+        'Topic :: Security',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: MacOS',
+        'Operating System :: POSIX :: Linux',
+        'Natural Language :: English',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python',
+        #'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
+    ],
 )
