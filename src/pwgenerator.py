@@ -15,7 +15,8 @@ class PasswordGenerator:
 
     def __init__(self, argparse=True):
         # Set default vars
-        self.separators = ('-', '_', ':', ';', '.', '=', '+', '%', '*');  # List of available separators
+        self.separators = ('-', '_', ':', ';', '.', '=', '+',
+                           '%', '*')  # List of available separators
 
         # Define options
         self.setOptions(argparse)
@@ -131,17 +132,22 @@ def main():
     # Options
     global args
     parser = argparse.ArgumentParser()
-    parser.add_argument("-n", "--min_word_length", type=int, help="Minimum length for each word", default=3)
-    parser.add_argument("-x", "--max_word_length", type=int, help="Maximum length for each word", default=8)
-    parser.add_argument("-i", "--max_int_value", type=int, help="Maximum value for the integer", default=1000)
-    parser.add_argument("-e", "--number_of_elements", type=int, help="Number of elements in the password (ie. 4 = 3 words + 1 integer)", default=4)
-    parser.add_argument("-s", "--no_special_characters",  action='store_true', help="Do not use special characters")
+    parser.add_argument("-n", "--min_word_length", type=int,
+                        help="Minimum length for each word", default=3)
+    parser.add_argument("-x", "--max_word_length", type=int,
+                        help="Maximum length for each word", default=8)
+    parser.add_argument("-i", "--max_int_value", type=int,
+                        help="Maximum value for the integer", default=1000)
+    parser.add_argument("-e", "--number_of_elements", type=int,
+                        help="Number of elements in the password (ie. 4 = 3 words + 1 integer)", default=4)
+    parser.add_argument("-s", "--no_special_characters",
+                        action='store_true', help="Do not use special characters")
     args = parser.parse_args()
 
     # Genrate a password
     pw = PasswordGenerator()
 
-    print (pw())
+    print(pw())
 
 
 def generate():
