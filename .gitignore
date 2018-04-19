@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 .Python
-passwordgenerator.egg-info/
+*.egg-info
 dist/
 build/
 
