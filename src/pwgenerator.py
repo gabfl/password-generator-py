@@ -11,117 +11,89 @@ import importlib
 import argparse
 
 
-class PasswordGenerator:
+def load_dictionary():
+    """
+        Load dictionary.
+    """
 
-    def __init__(self, argparse=True):
-        # Set default vars
-        self.separators = ('-', '_', ':', ';', '.', '=', '+',
-                           '%', '*')  # List of available separators
+    # Get module
+    module = importlib.import_module('passwordgenerator.data.english')
 
-        # Define options
-        self.setOptions(argparse)
+    # Save env dict in the global scope
+    return getattr(module, 'dictionary')
 
-        # Call initial methods
-        self.loadDictionary()
-        self.setIntPosition()
 
-    def setOptions(self, argparse):
-        """
-            Set options either with argsparse or with a default
-        """
+def get_random_word(dictionary, min_word_length=3, max_word_length=8):
+    """
+        Returns a random word from the dictionary
+    """
 
-        # Define options
-        self.options = {}
-        if argparse:
-            self.options['min_word_length'] = args.min_word_length
-            self.options['max_word_length'] = args.max_word_length
-            self.options['max_int_value'] = args.max_int_value
-            self.options['number_of_elements'] = args.number_of_elements
-            self.options['no_special_characters'] = args.no_special_characters
+    while True:
+        # Choose a random word
+        word = choice(dictionary)
+        # Stop looping as soon as we have a valid candidate
+        if len(word) >= min_word_length and len(word) <= max_word_length:
+            break
+
+    return word
+
+
+def get_random_separator(no_special_characters=False):
+    """
+        Returns a random separator
+    """
+
+    # List of available separators
+    separators = ('-', '_', ':', ';', '.', '=', '+', '%', '*')
+
+    if not no_special_characters:
+        return choice(separators)
+
+    return ''
+
+
+def get_random_int(max_int_value):
+    """
+        Returns a random number between 0 and `max_int_value`
+    """
+
+    return randint(0, max_int_value)
+
+
+def set_int_position(number_of_elements):
+    """
+        Set the position of the integer in the final password
+    """
+
+    return randint(0, number_of_elements - 1)
+
+
+def pw(min_word_length=3, max_word_length=8, max_int_value=1000, number_of_elements=4, no_special_characters=False):
+    """
+        Generate a password
+    """
+
+    # Set the position of the integer
+    int_position = set_int_position(number_of_elements)
+
+    # Load dictionary
+    dictionary = load_dictionary()
+
+    password = ''
+    for i in range(number_of_elements):
+        # Add word or integer
+        if i == int_position:
+            password += str(get_random_int(max_int_value))
         else:
-            self.options['min_word_length'] = 3
-            self.options['max_word_length'] = 8
-            self.options['max_int_value'] = 1000
-            self.options['number_of_elements'] = 4
-            self.options['no_special_characters'] = False
+            password += get_random_word(dictionary,
+                                        min_word_length,
+                                        max_word_length).title()
 
-    def getCurrentDir(self):
-        """
-            Returns the script directory name to locate the correct dictionary path
-        """
+        # Add separator
+        if i != number_of_elements - 1:
+            password += get_random_separator(no_special_characters)
 
-        return os.path.dirname(os.path.abspath(__file__)) + '/'
-
-    def loadDictionary(self):
-        """
-            Load dictionary.
-        """
-
-        # Get module
-        module = importlib.import_module('passwordgenerator.data.english')
-
-        # Save env dict in the global scope
-        self.dictionary = getattr(module, 'dictionary')
-
-    def getRandomWord(self):
-        """
-            Returns a random word from the dictionary
-        """
-
-        while True:
-            # Choose a random word
-            word = choice(self.dictionary)
-            # Stop looping as soon as we have a valid candidate
-            if len(word) >= self.options['min_word_length'] and len(word) <= self.options['max_word_length']:
-                break
-
-        return word
-
-    def getRandomSeparator(self):
-        """
-            Returns a random separator
-        """
-
-        if not self.options['no_special_characters']:
-            return choice(self.separators)
-
-        return ''
-
-    def getRandomInt(self):
-        """
-            Returns a random number between 0 and `self.options['max_int_value']`
-        """
-
-        return randint(0, self.options['max_int_value'])
-
-    def setIntPosition(self):
-        """
-            Set the position of the integer in the final password
-        """
-
-        self.intPosition = randint(0, self.options['number_of_elements'] - 1)
-
-    def generate(self):
-        """
-            Generate a password
-        """
-
-        password = ''
-        for i in range(self.options['number_of_elements']):
-            # Add word or integer
-            if i == self.intPosition:
-                password += str(self.getRandomInt())
-            else:
-                password += self.getRandomWord().title()
-
-            # Add separator
-            if i != self.options['number_of_elements'] - 1:
-                password += self.getRandomSeparator()
-
-        return password
-
-    def __call__(self):
-        return self.generate()
+    return password
 
 
 def main():
@@ -144,10 +116,12 @@ def main():
                         action='store_true', help="Do not use special characters")
     args = parser.parse_args()
 
-    # Genrate a password
-    pw = PasswordGenerator()
-
-    print(pw())
+    # Print a password
+    print(pw(min_word_length=args.min_word_length,
+             max_word_length=args.max_word_length,
+             max_int_value=args.max_int_value,
+             number_of_elements=args.number_of_elements,
+             no_special_characters=args.no_special_characters))
 
 
 def generate():
@@ -155,7 +129,6 @@ def generate():
         To use the module within another module
     """
 
-    pw = PasswordGenerator(False)
     return pw()
 
 
