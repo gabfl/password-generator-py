@@ -3,5 +3,7 @@ python:
   - "3.6"
 before_install:
   - pip install pycodestyle
+  - python3 setup.py install
 script:
   - pycodestyle --exclude=venv --ignore=E501 .
+  - pytest

@@ -1,5 +1,7 @@
 # password-generator-py
 
+[![Build Status](https://travis-ci.org/gabfl/password-generator-py.svg?branch=master)](https://travis-ci.org/gabfl/password-generator-py)
+
 ## Description
 
 A lot of people with security in mind will use random characters as passwords like `t.J:YuZcTSB=4z*v`.
