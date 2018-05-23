@@ -47,7 +47,7 @@ $> passwordgenerator
 ## Use within another Python script
 
 ```python
->>> from passwordgenerator import generate
+>>> from passwordgenerator import pwgenerator
 
 >>> pwgenerator.generate()
 '676=Layers*Bugbear_Escapes'
