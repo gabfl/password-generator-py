@@ -1,3 +1,6 @@
+[run]
+source=password-generator-py
+
 [report]
 omit =
   setup.py

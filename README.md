@@ -1,8 +1,7 @@
 # password-generator-py
 
 [![Build Status](https://travis-ci.org/gabfl/password-generator-py.svg?branch=master)](https://travis-ci.org/gabfl/password-generator-py)
-
-[![Coverage Status](https://coveralls.io/repos/github/gabfl/password-generator-py/badge.svg?branch=master)](https://coveralls.io/github/gabfl/password-generator-py?branch=master)
+[![codecov](https://codecov.io/gh/gabfl/password-generator-py/branch/master/graph/badge.svg)](https://codecov.io/gh/gabfl/password-generator-py)
 
 ## Description
 
