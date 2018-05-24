@@ -1,2 +1,6 @@
 [report]
-omit = setup.py
+omit =
+  setup.py
+  src/data/english.py
+exclude_lines =
+  if __name__ == '__main__':
