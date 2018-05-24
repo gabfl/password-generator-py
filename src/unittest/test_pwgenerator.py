@@ -17,6 +17,8 @@ class Test(unittest.TestCase):
 
     def test_get_random_separator(self):
         self.assertIsInstance(pwgenerator.get_random_separator(), str)
+        self.assertIsInstance(pwgenerator.get_random_separator(True), str)
+        self.assertEqual(pwgenerator.get_random_separator(True), '')
 
     def test_get_random_int(self):
         self.assertTrue(pwgenerator.get_random_int(50) in range(51))

@@ -1,6 +1,9 @@
 [report]
 omit =
   setup.py
+  src/__main__.py
   src/data/english.py
+  venv/*
 exclude_lines =
-  if __name__ == '__main__':
+  if __name__ == "__main__":
+  def main()
