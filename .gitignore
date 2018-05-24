@@ -8,5 +8,9 @@ build/
 venv/
 .pytest_cache
 
+# Codecov
+.coverage
+coverage.xml
+
 # Mac
 .DS_Store
