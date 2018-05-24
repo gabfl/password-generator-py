@@ -7,3 +7,5 @@ before_install:
 script:
   - pycodestyle --exclude=venv --ignore=E501 .
   - pytest
+after_success:
+  - coveralls
