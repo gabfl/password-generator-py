@@ -8,7 +8,7 @@ except(IOError, ImportError):
 
 setup(
     name='passwordgenerator',
-    version='1.3',
+    version='1.4',
     description='Passwords easy for humans, hard for computers',
     long_description=long_description,
     author='Gabriel Bordeaux',
