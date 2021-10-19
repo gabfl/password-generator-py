@@ -8,7 +8,7 @@ except(IOError, ImportError):
 
 setup(
     name='passwordgenerator',
-    version='1.4',
+    version='1.5',
     description='Passwords easy for humans, hard for computers',
     long_description=long_description,
     author='Gabriel Bordeaux',
@@ -17,7 +17,7 @@ setup(
     license='MIT',
     packages=['passwordgenerator', 'passwordgenerator.data'],
     package_dir={'passwordgenerator': 'src'},
-    install_requires=['argparse'],  # external dependencies
+    python_requires='>=2.7,>=3.2',
     entry_points={
         'console_scripts': [
             'passwordgenerator = passwordgenerator.pwgenerator:main',
