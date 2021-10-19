@@ -17,6 +17,7 @@ setup(
     license='MIT',
     packages=['passwordgenerator', 'passwordgenerator.data'],
     package_dir={'passwordgenerator': 'src'},
+    python_requires='>=2.7,>=3.2',
     entry_points={
         'console_scripts': [
             'passwordgenerator = passwordgenerator.pwgenerator:main',
