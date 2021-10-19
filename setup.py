@@ -17,7 +17,6 @@ setup(
     license='MIT',
     packages=['passwordgenerator', 'passwordgenerator.data'],
     package_dir={'passwordgenerator': 'src'},
-    install_requires=['argparse'],  # external dependencies
     entry_points={
         'console_scripts': [
             'passwordgenerator = passwordgenerator.pwgenerator:main',
