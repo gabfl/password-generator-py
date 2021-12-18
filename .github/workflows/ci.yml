@@ -1,0 +1,32 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - name: Install dependencies
+        run: |
+          pip install pycodestyle codecov pytest
+          python3 setup.py install
+      - name: Run pycodestyle
+        run: |
+          pycodestyle --exclude=venv --ignore=E501 .
+      - name: Run pytest
+        run: |
+          coverage run --source=. -m pytest
+      - name: Generate coverage report
+        run: |
+          coverage report -m
+      - name: Report to codecov
+        run: |
+          codecov
