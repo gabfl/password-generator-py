@@ -1,16 +1,12 @@
 from setuptools import setup, find_packages
 
-try:
-    import pypandoc
-    long_description = pypandoc.convert_file('README.md', 'rst')
-except(IOError, ImportError):
-    long_description = open('README.md').read()
+import pypandoc
 
 setup(
     name='passwordgenerator',
     version='1.5.1',
     description='Passwords easy for humans, hard for computers',
-    long_description=long_description,
+    long_description=pypandoc.convert_file('README.md', 'rst'),
     author='Gabriel Bordeaux',
     author_email='pypi@gab.lc',
     url='https://github.com/gabfl/password-generator-py/',
