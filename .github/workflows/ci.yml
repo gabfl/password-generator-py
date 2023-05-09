@@ -14,9 +14,13 @@ jobs:
           python-version: 3.9
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+      - name: Install deb dependencies
+        run: |
+          sudo apt update
+          sudo apt install pandoc
       - name: Install dependencies
         run: |
-          pip install pycodestyle coverage pytest
+          pip install pycodestyle coverage pytest pypandoc
           python3 setup.py install
       - name: Run pycodestyle
         run: |
